@@ -5,3 +5,8 @@ title: "About This Website"
 More about this website.
 
 ## En estos momentos estamos haciendo ensayo error
+
+```{r}
+datos=c(1,2,3)
+summary(datos)
+```

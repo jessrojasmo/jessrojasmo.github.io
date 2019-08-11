@@ -1,15 +1,44 @@
-name: "my-website"
+name: "Cursos"
 output_dir: "."
 navbar:
- title: "My Website"
+ logo:
+ image: images/picture.jpg
+ title: "Jessica María Rojas Mora"
  left:
- - text: "Home"
+ - text: "Diseño de Experimentos"
+   icon: fa-pencil2
    href: index.html
- - text: "About"
+ - text: "Estadística Básica"
+   icon: fa-info
    href: about.html
+ - text: "More"
+   icon: fa-info
+   href: mores.html
+   menu:
+        - text: "Introducción al software estadístico R"
+        - text: "Estadística Descriptiva"
+          href: page1.html
+        - text: "Estadística Inferencial"
+          href: page2.html
+        - text: "---------"
+        - text: "Modelos de regresión"
+        - text: "Page C"
+          href: page3.html
+        - text: "Page D"
+          href: page4.html
+ right:
+ - text: "More1"
+ - icon: fa-question fa-lg
+   href: https://www.itm.edu.co
+ - icon: fab fa-github
+   href: https://github.com/jessrojasmo/Cursos
 output:
   html_document:
     theme: cerulean
     highlight: espresso
-    include:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    df_print: paged
+    code_folding: hide
   
