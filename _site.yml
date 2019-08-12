@@ -1,17 +1,15 @@
 name: "Cursos"
 output_dir: "."
 navbar:
- logo:
- image: images/picture.jpg
  title: "Jessica María Rojas Mora"
  left:
- - text: "Diseño de Experimentos"
-   icon: fa-pencil2
+ - text: "Jessica Rojas"
+   icon: fa-info
    href: index.html
- - text: "Estadística Básica"
+ - text: "About me"
    icon: fa-info
    href: about.html
- - text: "More"
+ - text: "Tener en cuenta"
    icon: fa-info
    href: mores.html
    menu:
@@ -27,18 +25,20 @@ navbar:
         - text: "Page D"
           href: page4.html
  right:
- - text: "More1"
- - icon: fa-question fa-lg
+ - text: "Links"
+ - icon: fa-home
    href: https://www.itm.edu.co
  - icon: fab fa-github
-   href: https://github.com/jessrojasmo/Cursos
+   href: https://github.com/jessrojasmo/EBX04_Fraternidad_2019_II
 output:
   html_document:
     theme: cerulean
     highlight: espresso
-    fig_width: 7
+    include:
+    after_body: footer.html
+    fig_width:  6
     fig_height: 6
     fig_caption: true
     df_print: paged
-    code_folding: hide
+    #code_folding: hide
   

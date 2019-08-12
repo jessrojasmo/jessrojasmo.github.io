@@ -1,7 +1,156 @@
 ---
-title: "My Website"
+title: "Uso del software Estadístico R"
 ---
 
-Hello, Website!
+```{r fig.asp=0.3, fig.align='right', echo=FALSE}
+library(png)
+library(jpeg)
+library(grid)
+IM2 <- readJPEG("r1.jpg")
+grid.raster(IM2)
+```
 
-## Hello Welcome.
+### ¿Qué es R?
+
+- R es un lenguaje y un entorno para la computación estadística y los gráficos.
+
+- Es un proyecto GNU que es similar al lenguaje y entorno S que fue desarrollado en Bell Laboratories (antes AT&T, ahora Lucent Technologies) por John Chambers y sus colegas.
+
+- R proporciona una amplia variedad de técnicas estadísticas (modelos lineales y no lineales, pruebas estadísticas clásicas, análisis de series temporales, clasificación, agrupación,...) y técnicas gráficas, y es altamente extensible.
+
+- Entorno en el que se implementan técnicas estadísticas.
+
+### Ejemplo 1 
+
+La concentración media de partículas en microgramos por metro cúbico para una estación de un complejo petroquímico se midió cada 6 horas durante 30 días. Los datos resultantes se presentan en forma de tabla. Una nueva regulación de la contaminación atmosférica requiere que la concentración total de partículas se mantenga por debajo de 75 $mg\quad  m^{3}$. (Tomado del libro *Design of Experiments in Chemical Engineering*).
+
+```{r fig.asp=0.9, fig.align='right', echo=FALSE}
+library(png)
+library(jpeg)
+library(grid)
+IM2 <- readPNG("r2.png")
+grid.raster(IM2)
+```
+
+Con base a los datos, realizar una caracterización completa del conjunto de datos.
+ 1. Lectura en R de los datos.
+ 
+```{r}
+Concentración=scan(text='
+5 7 9 12 13 16 17 19 23 24 41
+18 24 6 10 16 14 23 19 8 20 26
+15 6 11 16 12 22 9 8 15 18 13
+7 13 14 8 17 19 11 21 9 55 72
+23 24 12 220 25 13 8 9 20 61 48
+565 65 10 43 20 45 27 20 72 12 115
+130 82 55 26 52 34 66 112 40 34 89
+85 95 28 110 16 19 61 67 45 34 32
+103 72 67 30 21 122 42 125 50 57 56
+25 15 46 30 35 40 16 53 65 78 98
+80 65 84 91 71 78 58 26 48 21 25                 
+')
+class(Concentración)
+str(Concentración)
+```
+
+2. Identificar los datos que cumplen con la nueva regulación
+
+```{r}
+Cumplen_Si=Concentración[Concentración<75]
+Cumplen_No=Concentración[Concentración>=75]
+summary(Cumplen_Si)
+summary(Cumplen_No)
+
+```
+
+### Creando o recodificando una nueva variable
+
+```{r}
+Cumplimiento=0
+for (i in 1:length(Concentración)){
+if (Concentración[i]<75) Cumplimiento[i]=="Si"
+else Cumplimiento[i]=="No"}
+Cumplimiento
+
+Datos_nuevos=data.frame(Concentración,Cumplimiento)
+head(Datos_nuevos)
+
+```
+
+### Otra forma de recodificar
+```{r}
+Cumplimiento_2=ifelse(Concentración<75,1,0)
+Cumplimiento_2
+```
+
+### Gráficos
+```{r}
+#Diagrama de puntos
+dotchart(table(Cumplimiento_2))
+#Diagrama circular
+pie(table(Cumplimiento_2))
+#Diagramas de dispersión
+plot(Concentración)
+plot(Concentración,pch=20,col="gray")
+# Gráficos de densidad
+plot(density(Concentración),lwd=4,col="Darkblue")
+
+par(mfrow=c(1,2))
+hist(Concentración,prob=TRUE)
+lines(density(Concentración))
+plot(density(Concentración))
+#Diagramas de barras
+barplot(Concentración)
+# Diagrama de cajas
+boxplot(Concentración)
+# Histograma de frecuencias
+hist(Concentración)
+#Diagrama de Tallos y hojas
+stem(Concentración)
+```
+
+### Construcción de tablas de frecuencias para datos agrupados
+
+### Marcas de clases con frecuencias absolutas
+```{r}
+amplitud=(max(Concentración)-min(Concentración))/sqrt(length(Concentración))
+amplitud
+table(cut(Concentración,breaks = seq(min(Concentración),max(Concentración),amplitud),right=TRUE))
+```
+
+### Marcas de clases con frecuencias relativas
+```{r}
+table(cut(Concentración,breaks = seq(min(Concentración),max(Concentración),amplitud),right=TRUE))/length(Concentración)
+plot(table(cut(Concentración,breaks = seq(min(Concentración),max(Concentración),amplitud),right=TRUE))/length(Concentración),ylab="F. Relativa",xlab="Marcas de Clase")
+```
+
+### Frecuencias absolutas y relativas acumuladas
+```{r}
+cumsum(table(cut(Concentración,breaks = seq(min(Concentración),max(Concentración),amplitud),right=TRUE)))
+cumsum(table(cut(Concentración,breaks = seq(min(Concentración),max(Concentración),amplitud),right=TRUE))/length(Concentración))
+```
+
+
+### Ejercicios Propuestos
+### Ejercicio 1.
+se estudia el rendimiento de un proceso químico con base en la observación de 50 días. Los datos se muestran a continuación. (Tomado de Notas de Clases: **Carlos Barrera, 2019**)
+
+```{r}
+Rendimiento=c(90.85,89.37,90.08,89.77,92.10,90.34,91.46,91.54,90.96,92.02,
+89.78,90.22,88.15,91.05,93.22,88.74,88.40,90.06,90.59,90.14,89.42,
+90.18,90.28,91.40,89.02,90.14,92.46,91.36,92.81,90.14,
+90.28,89.17,89.98,91.94,91.57,91.77,89.59,91.53,89.68,91.39,92.82,
+90.93,89.27,88.59,89.40,91.53,91.13,90.67,90.20,90.39)
+
+```
+
+Caracterizar los datos a partir de medidas de resumen y gráficos.
+
+### Ejercicio 2
+Una empresa dedicada a la fabricación de hierro fundido ha empleado un sistema de materias primas y procedimientos de procesamiento que ha producido un producto cuyo contenido medio de silicio en la población general era del 0,85%. Entró en vigor un nuevo contrato en el que un nuevo proveedor de materia prima sustituyó al anterior. Durante el primer mes de funcionamiento utilizando el nuevo material, se encontraron muestras aleatorias del contenido de silicio del producto:
+
+1.13; 0.80; 0.85; 0.60; 0.97; 0.92; 0.94; 0.72;
+1.17; 0.87; 0.36; 0.68; 0.73; 0.82; 0.79; 0.87;
+0.92; 0.81; 0.97; 0.48; 1.00; 0.92; 0.61; 0.81;
+0.71; 0.97; 0.89; 0.68; 1.00; 1.16.
+Observación las medidas dadas están en porcentajes, es decir, **1.13** es equivalente a **1.13%**.Caracterizar los datos y establezca si la medida adoptada fue óptima o no. 

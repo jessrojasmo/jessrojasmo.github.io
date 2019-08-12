@@ -11,7 +11,7 @@
 
 
 
-<title>My Website</title>
+<title>Uso del software Estadístico R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
@@ -28,6 +27,74 @@
 <script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -151,14 +218,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
 
 
 
@@ -179,23 +238,23 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">
-    <span class="fa fa-pencil2"></span>
+    <span class="fa fa-info"></span>
      
-    Diseño de Experimentos
+    Jessica Rojas
   </a>
 </li>
 <li>
   <a href="about.html">
     <span class="fa fa-info"></span>
      
-    Estadística Básica
+    About me
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fa fa-info"></span>
      
-    More
+    Tener en cuenta
      
     <span class="caret"></span>
   </a>
@@ -219,15 +278,15 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown-header">More1</li>
+        <li class="dropdown-header">Links</li>
 <li>
   <a href="https://www.itm.edu.co">
-    <span class="fa fa-question fa-lg"></span>
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/jessrojasmo/Cursos">
+  <a href="https://github.com/jessrojasmo/EBX04_Fraternidad_2019_II">
     <span class="fab fa fab fa-github"></span>
      
   </a>
@@ -239,24 +298,187 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+
+
+<h1 class="title toc-ignore">Uso del software Estadístico R</h1>
+
+</div>
+
+
+<p><img src="page1_files/figure-html/unnamed-chunk-1-1.png" width="576" style="display: block; margin: auto 0 auto auto;" /></p>
+<div id="que-es-r" class="section level3">
+<h3>¿Qué es R?</h3>
+<ul>
+<li><p>R es un lenguaje y un entorno para la computación estadística y los gráficos.</p></li>
+<li><p>Es un proyecto GNU que es similar al lenguaje y entorno S que fue desarrollado en Bell Laboratories (antes AT&amp;T, ahora Lucent Technologies) por John Chambers y sus colegas.</p></li>
+<li><p>R proporciona una amplia variedad de técnicas estadísticas (modelos lineales y no lineales, pruebas estadísticas clásicas, análisis de series temporales, clasificación, agrupación,…) y técnicas gráficas, y es altamente extensible.</p></li>
+<li><p>Entorno en el que se implementan técnicas estadísticas.</p></li>
 </ul>
 </div>
-
-
-
-<h1 class="title toc-ignore">My Website</h1>
-
+<div id="ejemplo-1" class="section level3">
+<h3>Ejemplo 1</h3>
+<p>La concentración media de partículas en microgramos por metro cúbico para una estación de un complejo petroquímico se midió cada 6 horas durante 30 días. Los datos resultantes se presentan en forma de tabla. Una nueva regulación de la contaminación atmosférica requiere que la concentración total de partículas se mantenga por debajo de 75 <span class="math inline">\(mg\quad m^{3}\)</span>. (Tomado del libro <em>Design of Experiments in Chemical Engineering</em>).</p>
+<p><img src="page1_files/figure-html/unnamed-chunk-2-1.png" width="576" style="display: block; margin: auto 0 auto auto;" /></p>
+<p>Con base a los datos, realizar una caracterización completa del conjunto de datos. 1. Lectura en R de los datos.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">Concentración=<span class="kw">scan</span>(<span class="dt">text=</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="st">5 7 9 12 13 16 17 19 23 24 41</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="st">18 24 6 10 16 14 23 19 8 20 26</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="st">15 6 11 16 12 22 9 8 15 18 13</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="st">7 13 14 8 17 19 11 21 9 55 72</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="st">23 24 12 220 25 13 8 9 20 61 48</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="st">565 65 10 43 20 45 27 20 72 12 115</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="st">130 82 55 26 52 34 66 112 40 34 89</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="st">85 95 28 110 16 19 61 67 45 34 32</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="st">103 72 67 30 21 122 42 125 50 57 56</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="st">25 15 46 30 35 40 16 53 65 78 98</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="st">80 65 84 91 71 78 58 26 48 21 25                 </span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="kw">class</span>(Concentración)</a></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">str</span>(Concentración)</a></code></pre></div>
+<pre><code>##  num [1:121] 5 7 9 12 13 16 17 19 23 24 ...</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Identificar los datos que cumplen con la nueva regulación</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">Cumplen_Si=Concentración[Concentración&lt;<span class="dv">75</span>]</a>
+<a class="sourceLine" id="cb5-2" title="2">Cumplen_No=Concentración[Concentración&gt;=<span class="dv">75</span>]</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">summary</span>(Cumplen_Si)</a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    5.00   14.00   22.50   29.03   42.75   72.00</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">summary</span>(Cumplen_No)</a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    78.0    84.5    98.0   129.6   118.5   565.0</code></pre>
 </div>
-
-
-<p>Hello, Website!</p>
-<div id="hello-welcome." class="section level2">
-<h2>Hello Welcome.</h2>
+<div id="creando-o-recodificando-una-nueva-variable" class="section level3">
+<h3>Creando o recodificando una nueva variable</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">Cumplimiento=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(Concentración)){</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="cf">if</span> (Concentración[i]<span class="op">&lt;</span><span class="dv">75</span>) Cumplimiento[i]<span class="op">==</span><span class="st">&quot;Si&quot;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="cf">else</span> Cumplimiento[i]<span class="op">==</span><span class="st">&quot;No&quot;</span>}</a>
+<a class="sourceLine" id="cb9-5" title="5">Cumplimiento</a></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">Datos_nuevos=<span class="kw">data.frame</span>(Concentración,Cumplimiento)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">head</span>(Datos_nuevos)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Concentración"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Cumplimiento"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"5","2":"0","_rn_":"1"},{"1":"7","2":"0","_rn_":"2"},{"1":"9","2":"0","_rn_":"3"},{"1":"12","2":"0","_rn_":"4"},{"1":"13","2":"0","_rn_":"5"},{"1":"16","2":"0","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="otra-forma-de-recodificar" class="section level3">
+<h3>Otra forma de recodificar</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">Cumplimiento_<span class="dv">2</span>=<span class="kw">ifelse</span>(Concentración&lt;<span class="dv">75</span>,<span class="dv">1</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2">Cumplimiento_<span class="dv">2</span></a></code></pre></div>
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [36] 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 1 1
+##  [71] 1 1 1 0 1 1 0 0 0 1 0 1 1 1 1 1 1 1 0 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1
+## [106] 1 1 1 0 0 0 1 0 0 1 0 1 1 1 1 1</code></pre>
+</div>
+<div id="graficos" class="section level3">
+<h3>Gráficos</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co">#Diagrama de puntos</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">dotchart</span>(<span class="kw">table</span>(Cumplimiento_<span class="dv">2</span>))</a></code></pre></div>
+<pre><code>## Warning in dotchart(table(Cumplimiento_2)): &#39;x&#39; is neither a vector nor a
+## matrix: using as.numeric(x)</code></pre>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co">#Diagrama circular</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">pie</span>(<span class="kw">table</span>(Cumplimiento_<span class="dv">2</span>))</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-2.png" width="576" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co">#Diagramas de dispersión</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="kw">plot</span>(Concentración)</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-3.png" width="576" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">plot</span>(Concentración,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>)</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-4.png" width="576" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># Gráficos de densidad</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">plot</span>(<span class="kw">density</span>(Concentración),<span class="dt">lwd=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;Darkblue&quot;</span>)</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-5.png" width="576" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">hist</span>(Concentración,<span class="dt">prob=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="kw">lines</span>(<span class="kw">density</span>(Concentración))</a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="kw">plot</span>(<span class="kw">density</span>(Concentración))</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-6.png" width="576" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="co">#Diagramas de barras</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">barplot</span>(Concentración)</a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="co"># Diagrama de cajas</span></a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="kw">boxplot</span>(Concentración)</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-7.png" width="576" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># Histograma de frecuencias</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">hist</span>(Concentración)</a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="co">#Diagrama de Tallos y hojas</span></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="kw">stem</span>(Concentración)</a></code></pre></div>
+<pre><code>## 
+##   The decimal point is 2 digit(s) to the right of the |
+## 
+##   0 | 11111111111111111111111111122222222222222222222222222222233333333333
+##   0 | 555555556666666777777777788888999
+##   1 | 000112233
+##   1 | 
+##   2 | 2
+##   2 | 
+##   3 | 
+##   3 | 
+##   4 | 
+##   4 | 
+##   5 | 
+##   5 | 7</code></pre>
+<p><img src="page1_files/figure-html/unnamed-chunk-7-8.png" width="576" /></p>
+</div>
+<div id="construccion-de-tablas-de-frecuencias-para-datos-agrupados" class="section level3">
+<h3>Construcción de tablas de frecuencias para datos agrupados</h3>
+</div>
+<div id="marcas-de-clases-con-frecuencias-absolutas" class="section level3">
+<h3>Marcas de clases con frecuencias absolutas</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">amplitud=(<span class="kw">max</span>(Concentración)<span class="op">-</span><span class="kw">min</span>(Concentración))<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(Concentración))</a>
+<a class="sourceLine" id="cb24-2" title="2">amplitud</a></code></pre></div>
+<pre><code>## [1] 50.90909</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">table</span>(<span class="kw">cut</span>(Concentración,<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Concentración),<span class="kw">max</span>(Concentración),amplitud),<span class="dt">right=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<pre><code>## 
+##   (5,55.9] (55.9,107]  (107,158]  (158,209]  (209,260]  (260,310] 
+##         86         26          6          0          1          0 
+##  (310,361]  (361,412]  (412,463]  (463,514]  (514,565] 
+##          0          0          0          0          1</code></pre>
+</div>
+<div id="marcas-de-clases-con-frecuencias-relativas" class="section level3">
+<h3>Marcas de clases con frecuencias relativas</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">table</span>(<span class="kw">cut</span>(Concentración,<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Concentración),<span class="kw">max</span>(Concentración),amplitud),<span class="dt">right=</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="kw">length</span>(Concentración)</a></code></pre></div>
+<pre><code>## 
+##    (5,55.9]  (55.9,107]   (107,158]   (158,209]   (209,260]   (260,310] 
+## 0.710743802 0.214876033 0.049586777 0.000000000 0.008264463 0.000000000 
+##   (310,361]   (361,412]   (412,463]   (463,514]   (514,565] 
+## 0.000000000 0.000000000 0.000000000 0.000000000 0.008264463</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">plot</span>(<span class="kw">table</span>(<span class="kw">cut</span>(Concentración,<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Concentración),<span class="kw">max</span>(Concentración),amplitud),<span class="dt">right=</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="kw">length</span>(Concentración),<span class="dt">ylab=</span><span class="st">&quot;F. Relativa&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Marcas de Clase&quot;</span>)</a></code></pre></div>
+<p><img src="page1_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+</div>
+<div id="frecuencias-absolutas-y-relativas-acumuladas" class="section level3">
+<h3>Frecuencias absolutas y relativas acumuladas</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(<span class="kw">cut</span>(Concentración,<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Concentración),<span class="kw">max</span>(Concentración),amplitud),<span class="dt">right=</span><span class="ot">TRUE</span>)))</a></code></pre></div>
+<pre><code>##   (5,55.9] (55.9,107]  (107,158]  (158,209]  (209,260]  (260,310] 
+##         86        112        118        118        119        119 
+##  (310,361]  (361,412]  (412,463]  (463,514]  (514,565] 
+##        119        119        119        119        120</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">cumsum</span>(<span class="kw">table</span>(<span class="kw">cut</span>(Concentración,<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Concentración),<span class="kw">max</span>(Concentración),amplitud),<span class="dt">right=</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="kw">length</span>(Concentración))</a></code></pre></div>
+<pre><code>##   (5,55.9] (55.9,107]  (107,158]  (158,209]  (209,260]  (260,310] 
+##  0.7107438  0.9256198  0.9752066  0.9752066  0.9834711  0.9834711 
+##  (310,361]  (361,412]  (412,463]  (463,514]  (514,565] 
+##  0.9834711  0.9834711  0.9834711  0.9834711  0.9917355</code></pre>
+</div>
+<div id="ejercicios-propuestos" class="section level3">
+<h3>Ejercicios Propuestos</h3>
+</div>
+<div id="ejercicio-1." class="section level3">
+<h3>Ejercicio 1.</h3>
+<p>se estudia el rendimiento de un proceso químico con base en la observación de 50 días. Los datos se muestran a continuación. (Tomado de Notas de Clases: <strong>Carlos Barrera, 2019</strong>)</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">Rendimiento=<span class="kw">c</span>(<span class="fl">90.85</span>,<span class="fl">89.37</span>,<span class="fl">90.08</span>,<span class="fl">89.77</span>,<span class="fl">92.10</span>,<span class="fl">90.34</span>,<span class="fl">91.46</span>,<span class="fl">91.54</span>,<span class="fl">90.96</span>,<span class="fl">92.02</span>,</a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="fl">89.78</span>,<span class="fl">90.22</span>,<span class="fl">88.15</span>,<span class="fl">91.05</span>,<span class="fl">93.22</span>,<span class="fl">88.74</span>,<span class="fl">88.40</span>,<span class="fl">90.06</span>,<span class="fl">90.59</span>,<span class="fl">90.14</span>,<span class="fl">89.42</span>,</a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="fl">90.18</span>,<span class="fl">90.28</span>,<span class="fl">91.40</span>,<span class="fl">89.02</span>,<span class="fl">90.14</span>,<span class="fl">92.46</span>,<span class="fl">91.36</span>,<span class="fl">92.81</span>,<span class="fl">90.14</span>,</a>
+<a class="sourceLine" id="cb35-4" title="4"><span class="fl">90.28</span>,<span class="fl">89.17</span>,<span class="fl">89.98</span>,<span class="fl">91.94</span>,<span class="fl">91.57</span>,<span class="fl">91.77</span>,<span class="fl">89.59</span>,<span class="fl">91.53</span>,<span class="fl">89.68</span>,<span class="fl">91.39</span>,<span class="fl">92.82</span>,</a>
+<a class="sourceLine" id="cb35-5" title="5"><span class="fl">90.93</span>,<span class="fl">89.27</span>,<span class="fl">88.59</span>,<span class="fl">89.40</span>,<span class="fl">91.53</span>,<span class="fl">91.13</span>,<span class="fl">90.67</span>,<span class="fl">90.20</span>,<span class="fl">90.39</span>)</a></code></pre></div>
+<p>Caracterizar los datos a partir de medidas de resumen y gráficos.</p>
+</div>
+<div id="ejercicio-2" class="section level3">
+<h3>Ejercicio 2</h3>
+<p>Una empresa dedicada a la fabricación de hierro fundido ha empleado un sistema de materias primas y procedimientos de procesamiento que ha producido un producto cuyo contenido medio de silicio en la población general era del 0,85%. Entró en vigor un nuevo contrato en el que un nuevo proveedor de materia prima sustituyó al anterior. Durante el primer mes de funcionamiento utilizando el nuevo material, se encontraron muestras aleatorias del contenido de silicio del producto:</p>
+<p>1.13; 0.80; 0.85; 0.60; 0.97; 0.92; 0.94; 0.72; 1.17; 0.87; 0.36; 0.68; 0.73; 0.82; 0.79; 0.87; 0.92; 0.81; 0.97; 0.48; 1.00; 0.92; 0.61; 0.81; 0.71; 0.97; 0.89; 0.68; 1.00; 1.16. Observación las medidas dadas están en porcentajes, es decir, <strong>1.13</strong> es equivalente a <strong>1.13%</strong>.Caracterizar los datos y establezca si la medida adoptada fue óptima o no.</p>
 </div>
 
 

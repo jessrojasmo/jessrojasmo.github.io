@@ -1,7 +1,15 @@
 ---
-title: "My Website"
+  title: "Estadística Básica"
 ---
 
-Hello, Website!
+## Hola a todos Bienvenidos 
 
-## Hello Welcome.
+
+```{r fig.asp=0.6, fig.align='center', echo=FALSE}
+library(png)
+library(grid)
+img2 <- readPNG("Logo_ITM.png")
+grid.raster(img2)
+```
+
+###Documentos de interés por parte de la escuela:

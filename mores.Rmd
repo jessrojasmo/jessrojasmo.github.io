@@ -1,9 +1,4 @@
 ---
-title: "About This Website"
+title: "Introducción a R"
 ---
 
-More about this website.
-
-```{r}
-mtcars
-```

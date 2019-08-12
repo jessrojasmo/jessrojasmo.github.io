@@ -1,7 +1,16 @@
 ---
-title: "My Website"
+title: "Página web para las cátedras 2019, segundo semestre."
 ---
+```{r fig.asp=0.9, fig.align='right', echo=FALSE}
+library(png)
+library(jpeg)
+library(grid)
+IM2 <- readJPEG("r3.jpg")
+grid.raster(IM2)
+```
+Hola a todos!!! bienvenidos a este espacio creado para el desarrollo curricular de algunas cátedras que tengo asignadas para el segundo semestre del 2019. Encontran material asociados con los siguientes cursos:
 
-Hello, Website!
-
-## Hello Welcome.
+- Diseño de Experimentos 
+- Estadística Básica
+- Control Estadístico de Procesos para la tecnología de Calidad.
+- Teoría de la Probabilidad y Colas.

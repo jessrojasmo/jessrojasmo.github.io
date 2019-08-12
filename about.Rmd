@@ -1,12 +1,24 @@
 ---
-title: "About This Website"
+title: "Información General"
 ---
 
-More about this website.
+- __Nombre:__ Jessica María Rojas Mora
+- __Profesión:__ 
+- Estadístico, Universidad de Córdoba.
+- Especialista en Estadística Aplicada, Universidad del Atlantico.
 
-## En estos momentos estamos haciendo ensayo error
+- Estudiante de Maestría en Ciencias Estadísticas, Universidad Nacional de Colombia, sede Medellín.
 
-```{r}
-datos=c(1,2,3)
-summary(datos)
+- __Ocupación:__ 
+- Docente de Estadística y a fines Universidad de Antioquia e Instituto Tecnológico Metropolitano, ITM.
+
+
+```{r fig.asp=0.9, fig.align='right', echo=FALSE}
+library(png)
+library(jpeg)
+library(grid)
+IM2 <- readJPEG("news.jpg")
+grid.raster(IM2)
 ```
+
+
